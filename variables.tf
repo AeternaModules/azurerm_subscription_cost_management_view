@@ -37,27 +37,27 @@ EOT
     subscription_id = string
     timeframe       = string
     dataset = object({
-      aggregation = object({
+      aggregation = list(object({
         column_name = string
         name        = string
-      })
+      }))
       granularity = string
-      grouping = optional(object({
+      grouping = optional(list(object({
         name = string
         type = string
-      }))
-      sorting = optional(object({
+      })))
+      sorting = optional(list(object({
         direction = string
         name      = string
-      }))
+      })))
     })
-    kpi = optional(object({
+    kpi = optional(list(object({
       type = string
-    }))
-    pivot = optional(object({
+    })))
+    pivot = optional(list(object({
       name = string
       type = string
-    }))
+    })))
   }))
 }
 
