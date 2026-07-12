@@ -1,3 +1,7 @@
+output "subscription_cost_management_views_id" {
+  description = "Map of id values across all subscription_cost_management_views, keyed the same as var.subscription_cost_management_views"
+  value       = { for k, v in azurerm_subscription_cost_management_view.subscription_cost_management_views : k => v.id }
+}
 output "subscription_cost_management_views_accumulated" {
   description = "Map of accumulated values across all subscription_cost_management_views, keyed the same as var.subscription_cost_management_views"
   value       = { for k, v in azurerm_subscription_cost_management_view.subscription_cost_management_views : k => v.accumulated }
