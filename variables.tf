@@ -59,5 +59,13 @@ EOT
       type = string
     })))
   }))
+  validation {
+    condition = alltrue([
+      for k, v in var.subscription_cost_management_views : (
+        length(v.dataset.aggregation) >= 1
+      )
+    ])
+    error_message = "Each aggregation list must contain at least 1 items"
+  }
 }
 
